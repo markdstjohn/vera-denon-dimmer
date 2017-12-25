@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<implementation>
+  <files>L_DenonVolume1.lua</files>
+  <startup>update_status</startup>
+  <actionList>
+    <action>
+      <serviceId>urn:micasaverde-com:serviceId:HaDevice1</serviceId>
+      <name>Poll</name>
+      <job>
+        update_status(lul_device)
+        return 4, 5
+      </job>
+    </action>
+    <action>
+      <serviceId>urn:upnp-org:serviceId:SwitchPower1</serviceId>
+      <name>SetTarget</name>
+      <job>
+        set_target(lul_device, lul_settings)
+        return 4, 5
+      </job>
+    </action>
+     <action>
+      <serviceId>urn:upnp-org:serviceId:Dimming1</serviceId>
+      <name>SetLoadLevelTarget</name>
+      <job>
+        set_load_level_target(lul_device, lul_settings)
+        return 4, 5
+      </job>
+    </action>
+  </actionList>
+</implementation>
